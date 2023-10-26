@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "GoiAPI5",
+    platforms: [
+            .iOS(.v14)
+        ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -21,8 +24,6 @@ let package = Package(
         .target(
             name: "GoiAPI5",
             dependencies: []),
-        .testTarget(
-            name: "GoiAPI5Tests",
-            dependencies: ["GoiAPI5"]),
+        
     ]
 )
