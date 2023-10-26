@@ -5,7 +5,7 @@ import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
 
-public struct RecoveryWalletView: View {
+public struct MainWalletApp: View {
    
   
     
