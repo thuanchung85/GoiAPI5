@@ -12,17 +12,18 @@ import UniformTypeIdentifiers
 
 public struct QRCodeMakerView_ForReceiveCoin: View {
    
-    @State var currentWalletAddress:String = ""
-    @State var currentWalletName:String = ""
+    @Binding var currentWalletAddress:String
+    @Binding var currentWalletName:String
     
      var width:CGFloat?
      var height:CGFloat?
     
-    public init(width:CGFloat,  height:CGFloat, currentWalletAddress:String,currentWalletName:String) {
-        self.currentWalletName = currentWalletName
+    public init(width:CGFloat,  height:CGFloat, currentWalletAddress:Binding<String>,currentWalletName:Binding<String>) {
+        self._currentWalletName = currentWalletName
+        self._currentWalletAddress = currentWalletAddress
         self.width = width
         self.height = height
-        self.currentWalletAddress = currentWalletAddress
+       
        
     }
     
