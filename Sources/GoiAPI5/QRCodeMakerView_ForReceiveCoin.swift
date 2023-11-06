@@ -18,10 +18,11 @@ public struct QRCodeMakerView_ForReceiveCoin: View {
      var width:CGFloat?
      var height:CGFloat?
     
-    public init(width:CGFloat,  height:CGFloat) {
-       
+    public init(width:CGFloat,  height:CGFloat, currentWalletAddress:String,currentWalletName:String) {
+        self.currentWalletName = currentWalletName
         self.width = width
         self.height = height
+        self.currentWalletAddress = currentWalletAddress
        
     }
     
