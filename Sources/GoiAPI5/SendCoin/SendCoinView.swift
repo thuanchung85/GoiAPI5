@@ -93,6 +93,7 @@ public struct SendCoinView: View {
                     }
                     HStack{
                         TextField("0", text: self.$amountCoin)
+                            .keyboardType(.numberPad)
                             .font(.title)
                             .scaledToFill()
                             .minimumScaleFactor(0.02)
