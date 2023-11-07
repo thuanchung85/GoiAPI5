@@ -18,7 +18,7 @@ struct TOKEN_Data_OfUser: Identifiable, Hashable {
 public struct ListOfTokenBelongNetworkView: View {
     
     @Binding var isBack:Bool
-  
+    @State var searchText:String = ""
     
     let arr_TokenofThisNetwork = [
         TOKEN_Data_OfUser(name: "Binance USD", imgIcon: "BUSD"),
@@ -29,6 +29,8 @@ public struct ListOfTokenBelongNetworkView: View {
     
     //======BODY====///
     public var body: some View{
+        SearchBar(text: $searchText)
+            .padding(.vertical, 15)
         ScrollView{
             VStack{
                 ForEach(self.arr_TokenofThisNetwork, id: \.self)
