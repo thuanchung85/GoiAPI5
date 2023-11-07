@@ -84,7 +84,7 @@ public struct SendCoinView: View {
                      .padding(20)
                 }
             }
-          
+          Spacer()
             HStack{
                 VStack{
                     HStack{
@@ -122,7 +122,7 @@ public struct SendCoinView: View {
                     }
                 }
             }
-            
+            Spacer()
             HStack{
                 Image("Account")
                     .resizable()
