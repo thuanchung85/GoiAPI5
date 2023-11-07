@@ -138,23 +138,25 @@ public struct SendCoinView: View {
             
             Spacer()
             //nút copy address
-             Button(action: {
-                 print("NEXT send COIN")
-                 
-             }) {
-                 HStack{
-                     Text("NEXT")
-                         .foregroundColor(Color.white)
-                         .font(.custom("Arial", size: 20))
-                         .padding(.horizontal,5)
-                 }
-                 .frame(maxWidth: .infinity, minHeight: 60 ,maxHeight: 60)
-                 .background(Color.green)
-                 .cornerRadius(10)
-                 .padding(.horizontal,20)
-                 
-             }
-             .padding(20)
+            if(Int(self.amountCoin) ?? 0 > 0){
+                Button(action: {
+                    print("NEXT send COIN")
+                    
+                }) {
+                    HStack{
+                        Text("NEXT")
+                            .foregroundColor(Color.white)
+                            .font(.custom("Arial", size: 20))
+                            .padding(.horizontal,5)
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 60 ,maxHeight: 60)
+                    .background(Color.green)
+                    .cornerRadius(10)
+                    .padding(.horizontal,20)
+                    
+                }
+                .padding(20)
+            }
         }
         
         //show sheet về các địa chỉ ví khác đã lưu
