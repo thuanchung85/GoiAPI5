@@ -7,12 +7,8 @@ public struct RecipientWalletListView: View {
     @State var searchText:String = ""
     
     
-     var todoItems = [ ToDoItem(name: "Meet Eddie for lunch"),
-                                  ToDoItem(name: "Buy toilet paper"),
-                                  ToDoItem(name: "Write a new tutorial"),
-                                  ToDoItem(name: "Buy two bottles of wine"),
-                                  ToDoItem(name: "Prepare the presentation deck")
-                                    ]
+    @State var ListOfRecipientWalletAddress : [RecipientWalletItem] = []
+    
     //===BODY==//
     public var body: some View {
         VStack(){
@@ -45,40 +41,56 @@ public struct RecipientWalletListView: View {
             SearchBar(text: $searchText)
                 .padding(.vertical, 15)
             
-            
-            List(todoItems.filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { item in
-                Text(item.name)
+            //list of recipent đã save trươc đó
+            List(ListOfRecipientWalletAddress.filter({ searchText.isEmpty ? true : $0.walletname.contains(searchText) })) { item in
+                HStack{
+                    VStack{
+                        Text( "\(item.walletname)")
+                            .font(.custom("Arial Bold", size: 15))
+                            .foregroundColor(Color.black)
+                            .padding(5)
+                        Text( "\(item.walletAddress)")
+                            .font(.custom("Arial", size: 12))
+                            .foregroundColor(Color.gray)
+                            .padding(5)
+                    }
+                    .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
+                }
+                .padding(5)
             }
             
         }//end Vstack
+        
+        .onAppear(){
+           let soluongRecipentSaved =  Int(UserDefaults.standard.string(forKey: "numberOfRecipientWallet") ?? "0")
+            if soluongRecipentSaved != nil {
+                if(soluongRecipentSaved! > 0){
+                    for i in 0...(soluongRecipentSaved!){
+                        let rg = UserDefaults.standard.string(forKey: "recipient\(i)") ?? "0"
+                        let arr = rg.components(separatedBy: "+|Receiver@Wallet|+")
+                        let newRecipient = RecipientWalletItem(walletname:arr[0],walletAddress:arr[1])
+                        ListOfRecipientWalletAddress.append(newRecipient)
+                    }
+                }
+            }
+        }
     }//end body
 }//end struct
 
 
 
 
-//
-//  ToDoItem.swift
-//  ToDoList
-//
-//  Created by Simon Ng on 24/3/2020.
-//  Copyright © 2020 AppCoda. All rights reserved.
-//
+//=========================//
 
 import Foundation
 import CoreData
 
-enum Priority: Int {
-    case low = 0
-    case normal = 1
-    case high = 2
-}
 
-struct ToDoItem: Identifiable {
+struct RecipientWalletItem: Identifiable {
     var id = UUID()
-    var name: String = ""
-    var priorityNum: Priority = .normal
-    var isComplete: Bool = false
+    var imgAvata:String? = ""
+    var walletname: String = ""
+    var walletAddress: String = ""
 }
 
 

@@ -36,7 +36,7 @@ public struct SendCoinView: View {
                         HStack{
                             Spacer()
                             Text("Send Coin")
-                                .font(.custom("Arial ", size: 20))
+                                .font(.custom("Arial Bold", size: 20))
                                 .padding(.top,10)
                             Spacer()
                         }
