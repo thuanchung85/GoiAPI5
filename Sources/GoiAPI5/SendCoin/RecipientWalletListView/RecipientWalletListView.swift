@@ -54,7 +54,12 @@ public struct RecipientWalletListView: View {
                             .foregroundColor(Color.gray)
                             .padding(5)
                     }
-                    .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
+                    .frame(height: 120)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.5), .green.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
+                        )
+                    .cornerRadius(10)
+                    .padding(.horizontal,15)
                 }
                 .padding(5)
             }
