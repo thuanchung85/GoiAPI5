@@ -201,6 +201,10 @@ public struct SendCoinView: View {
             
             ListOfCoinView(isBack: self.$isShowSheet_PickOtherCoinForSend, CoinSymbol:self.$CoinSymbol, currentNetWork_name: self.$currentNetWork_name)
          })//end sheet
+        
+        .onChange(of: self.currentNetWork_name) { newValue in
+            self.currentNetWork_name = newValue
+        }
     }//end body
 }//end struct
 
