@@ -215,27 +215,27 @@ func return_CoinSymbol_Image_By_NetworkName(currentNetWork_name:String) ->String
     switch(currentNetWork_name)
     {
     case "BSC":
-        currentCoinSymbol = "BNB"
+        currentCoinSymbol = "BSC"
     case "BSC Testnest":
-        currentCoinSymbol="BNB"
+        currentCoinSymbol="BSC"
     case "Goerli Testnet":
-        currentCoinSymbol="ETH"
+        currentCoinSymbol="Ethereum"
     case "Ethereum":
-        currentCoinSymbol="ETH"
+        currentCoinSymbol="Ethereum"
     case "Polygon":
-        currentCoinSymbol="MATIC"
+        currentCoinSymbol="Polygon"
     case "Pools":
         currentCoinSymbol="Pools"
     case "Pools Testnest":
         currentCoinSymbol="Pools"
     case "Fantom":
-        currentCoinSymbol="FTM"
+        currentCoinSymbol="Fantom"
     case "Avalanche":
-        currentCoinSymbol="AVAX"
+        currentCoinSymbol="Avalanche"
     case "Cronos":
-        currentCoinSymbol="CRO"
+        currentCoinSymbol="Cronos"
     case "Arbitrum":
-        currentCoinSymbol="ARB"
+        currentCoinSymbol="Arbitrum"
     default:
         currentCoinSymbol="Pools"
     }
