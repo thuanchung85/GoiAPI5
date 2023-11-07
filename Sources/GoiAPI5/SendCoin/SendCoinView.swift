@@ -10,14 +10,15 @@ public struct SendCoinView: View {
     
     //biến input địa chỉ ví người nhận
     @State var recipientWalletAddress:String = ""
+    @State var CoinSymbol = ""
     @State var amountCoin:String = ""
     
     //biến show sheet người dùng chọn coin khác
     @State var isShowSheet_PickOtherCoinForSend = false
     
     //===INIT====//
-    public init(isBack:Binding<Bool>) {
-       
+    public init(isBack:Binding<Bool>,CoinSymbol:String) {
+        self.CoinSymbol = CoinSymbol
         self._isBack = isBack
     }
     
@@ -95,7 +96,7 @@ public struct SendCoinView: View {
             HStack{
                 VStack{
                     HStack{
-                        Text("BTC")
+                        Text(self.CoinSymbol)
                             .font(.body)
                     }
                     HStack{
@@ -195,7 +196,7 @@ public struct SendCoinView: View {
         .sheet(isPresented: self.$isShowSheet_PickOtherCoinForSend,
                 content: {
             
-            ListOfCoinView(isBack: self.$isShowSheet_PickOtherCoinForSend)
+            ListOfCoinView(isBack: self.$isShowSheet_PickOtherCoinForSend, CoinSymbol:self.$CoinSymbol)
          })//end sheet
     }//end body
 }//end struct

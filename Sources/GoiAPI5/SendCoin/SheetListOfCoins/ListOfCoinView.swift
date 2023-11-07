@@ -18,6 +18,7 @@ var currentBalanceOfCoin_for_Address: String? = "0"
 public struct ListOfCoinView: View {
     
     @Binding var isBack:Bool
+    @Binding var CoinSymbol:String
     
     let arr_OrtherNetwork = [
        Coin_Data_OfUser(name: "BSC", imgIcon: "BSC", CoinSymbol: "BNB"),
@@ -58,6 +59,7 @@ public struct ListOfCoinView: View {
                     .onTapGesture(perform: {
                         print(i.name)
                         self.isBack = false
+                        self.CoinSymbol = i.CoinSymbol ?? "..."
                     })
                     .padding(.horizontal,15)
                     
