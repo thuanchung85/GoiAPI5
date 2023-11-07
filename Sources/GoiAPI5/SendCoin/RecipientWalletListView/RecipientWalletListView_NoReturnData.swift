@@ -11,6 +11,11 @@ public struct RecipientWalletListView_NoReturnData: View {
     
     @State var ListOfRecipientWalletAddress : [RecipientWalletItem] = []
     
+    
+    public init(isBack:Binding<Bool>) {
+      
+        self._isBack = isBack
+    }
     //===BODY==//
     public var body: some View {
         VStack(){
