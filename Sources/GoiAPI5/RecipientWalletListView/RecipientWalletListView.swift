@@ -5,6 +5,14 @@ import AVKit
 public struct RecipientWalletListView: View {
     @Binding var isBack:Bool
     @State var searchText:String = ""
+    
+    
+     var todoItems = [ ToDoItem(name: "Meet Eddie for lunch"),
+                                  ToDoItem(name: "Buy toilet paper"),
+                                  ToDoItem(name: "Write a new tutorial"),
+                                  ToDoItem(name: "Buy two bottles of wine"),
+                                  ToDoItem(name: "Prepare the presentation deck")
+                                    ]
     //===BODY==//
     public var body: some View {
         VStack(){
@@ -35,14 +43,44 @@ public struct RecipientWalletListView: View {
             .padding()
             
             SearchBar(text: $searchText)
-                .padding(.top, -30)
+                .padding(.vertical, 15)
             
             
-           
+            List(todoItems.filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { item in
+                Text(item.name)
+            }
             
         }//end Vstack
     }//end body
 }//end struct
+
+
+
+
+//
+//  ToDoItem.swift
+//  ToDoList
+//
+//  Created by Simon Ng on 24/3/2020.
+//  Copyright © 2020 AppCoda. All rights reserved.
+//
+
+import Foundation
+import CoreData
+
+enum Priority: Int {
+    case low = 0
+    case normal = 1
+    case high = 2
+}
+
+struct ToDoItem: Identifiable {
+    var id = UUID()
+    var name: String = ""
+    var priorityNum: Priority = .normal
+    var isComplete: Bool = false
+}
+
 
 //==THANH SEARCH BAR===///
 struct SearchBar: View {
@@ -85,7 +123,9 @@ struct SearchBar: View {
                 Button(action: {
                     self.isEditing = false
                     self.text = ""
- 
+                    // Dismiss the keyboard
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
                 }) {
                     Text("Cancel")
                 }
