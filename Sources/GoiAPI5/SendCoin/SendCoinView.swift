@@ -84,7 +84,7 @@ public struct SendCoinView: View {
                      .padding(20)
                 }
             }
-            Spacer()
+          
             HStack{
                 VStack{
                     HStack{
@@ -134,9 +134,10 @@ public struct SendCoinView: View {
                 Spacer()
                 Text("00")
                     .font(.body)
+                    .padding(.trailing,20)
             }
             .background(Color.gray.opacity(0.3))
-            .cornerRadius(15)
+            .cornerRadius(25)
             .padding(.horizontal,20)
             
             Spacer()
