@@ -17,7 +17,7 @@ public struct SendCoinView: View {
     //====BODY===/
     public var body: some View{
         VStack{
-            
+            Spacer()
             //nút copy address
              Button(action: {
                  print("open recipient list")
@@ -35,6 +35,7 @@ public struct SendCoinView: View {
                  .padding(.horizontal,20)
                  
              }
+             .padding(20)
         }
         
         //show sheet về các địa chỉ ví khác đã lưu

@@ -4,7 +4,7 @@ import AVKit
 
 public struct RecipientWalletListView: View {
     @Binding var isBack:Bool
-    
+    @State var searchText:String = ""
     //===BODY==//
     public var body: some View {
         VStack(){
@@ -34,7 +34,8 @@ public struct RecipientWalletListView: View {
             }
             .padding()
             
-            SearchBar(text: .constant(""))
+            SearchBar(text: $searchText)
+                .padding(.top, -30)
             
             
            
