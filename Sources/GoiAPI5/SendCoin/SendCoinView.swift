@@ -11,6 +11,7 @@ public struct SendCoinView: View {
     //biến input địa chỉ ví người nhận
     @State var recipientWalletAddress:String = ""
     @State var CoinSymbol = ""
+    @State var currentNetWork_name = ""
     @State var amountCoin:String = ""
     
     //biến show sheet người dùng chọn coin khác
@@ -139,7 +140,8 @@ public struct SendCoinView: View {
             
             //khu hiện trong ví user có bao nhieu coin thuộc loai này
             HStack{
-                Image("Account")
+               
+                Image(return_CoinSymbol_Image_By_NetworkName(currentNetWork_name: self.currentNetWork_name))
                     .resizable()
                     .scaledToFill()
                     .clipShape(Circle())
@@ -206,7 +208,38 @@ public struct SendCoinView: View {
 
 
 
-
+func return_CoinSymbol_Image_By_NetworkName(currentNetWork_name:String) ->String
+{
+    var currentCoinSymbol:String = ""
+    switch(currentNetWork_name)
+    {
+    case "BSC":
+        currentCoinSymbol = "BNB"
+    case "BSC Testnest":
+        currentCoinSymbol="BNB"
+    case "Goerli Testnet":
+        currentCoinSymbol="ETH"
+    case "Ethereum":
+        currentCoinSymbol="ETH"
+    case "Polygon":
+        currentCoinSymbol="MATIC"
+    case "Pools":
+        currentCoinSymbol="Pools"
+    case "Pools Testnest":
+        currentCoinSymbol="Pools"
+    case "Fantom":
+        currentCoinSymbol="FTM"
+    case "Avalanche":
+        currentCoinSymbol="AVAX"
+    case "Cronos":
+        currentCoinSymbol="CRO"
+    case "Arbitrum":
+        currentCoinSymbol="ARB"
+    default:
+        currentCoinSymbol="Pools"
+    }
+    return currentCoinSymbol
+}
 
 
 
