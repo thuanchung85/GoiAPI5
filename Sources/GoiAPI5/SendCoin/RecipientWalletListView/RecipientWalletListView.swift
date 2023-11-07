@@ -50,11 +50,11 @@ public struct RecipientWalletListView: View {
                             .foregroundColor(Color.black)
                             .padding(5)
                         Text( "\(item.walletAddress)")
-                            .font(.custom("Arial", size: 25))
+                            .font(.custom("Arial", size: 18))
                             .foregroundColor(Color.gray)
                             .padding(5)
                     }
-                    .frame(height: 150)
+                    .frame(width:200,height: 150)
                     .background(
                         LinearGradient(gradient: Gradient(colors: [.purple.opacity(0.1), .green.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
                         )
