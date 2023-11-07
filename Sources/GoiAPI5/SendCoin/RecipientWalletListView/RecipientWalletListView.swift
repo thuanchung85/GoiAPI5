@@ -54,7 +54,7 @@ public struct RecipientWalletListView: View {
                             .foregroundColor(Color.gray)
                             .padding(5)
                     }
-                    .frame(width:400,height: 200)
+                    .frame(width:350,height: 200)
                     .background(
                         LinearGradient(gradient: Gradient(colors: [.purple.opacity(0.1), .green.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
                         )
