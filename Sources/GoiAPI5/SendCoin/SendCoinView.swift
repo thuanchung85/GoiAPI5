@@ -93,12 +93,16 @@ public struct SendCoinView: View {
                     }
                     HStack{
                         TextField("0", text: self.$amountCoin)
+                            .font(.title)
+                            .scaledToFill()
+                            .minimumScaleFactor(0.02)
+                            .multilineTextAlignment(.center)
                             .frame(height: 60)
                             .foregroundColor(Color.black)
                             .textFieldStyle(PlainTextFieldStyle())
                             .padding([.horizontal], 4)
                             .cornerRadius(10)
-                            .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
+                            .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray.opacity(0.1)))
                             .padding([.horizontal], 20)
                     }
                     HStack{
