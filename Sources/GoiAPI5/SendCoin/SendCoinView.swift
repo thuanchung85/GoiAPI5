@@ -173,11 +173,23 @@ public struct SendCoinView: View {
         //show sheet về các địa chỉ ví khác đã lưu
         .sheet(isPresented: $isShowSheet_RecipientList,
                 content: {
-           RecipientWalletListView(isBack: $isShowSheet_RecipientList)
+            RecipientWalletListView(isBack: $isShowSheet_RecipientList, recipientWalletAddress: $recipientWalletAddress
+                                    )
            
          })//end sheet
     }//end body
 }//end struct
+
+
+
+
+
+
+
+
+
+
+
 extension Color {
     init(hex: Int, opacity: Double = 1.0) {
         let red = Double((hex & 0xff0000) >> 16) / 255.0

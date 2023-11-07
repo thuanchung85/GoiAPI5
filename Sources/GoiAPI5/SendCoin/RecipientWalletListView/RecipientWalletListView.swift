@@ -4,6 +4,9 @@ import AVKit
 
 public struct RecipientWalletListView: View {
     @Binding var isBack:Bool
+    
+    @Binding var recipientWalletAddress:String
+    
     @State var searchText:String = ""
     
     
@@ -70,6 +73,11 @@ public struct RecipientWalletListView: View {
                     .padding(.horizontal,15)
                 }
                 .padding(5)
+                .onTapGesture(perform: {
+                    print("CHỌN wallet address NAY active:")
+                    self.recipientWalletAddress = item.walletAddress
+                    self.isBack = false
+                })
             } .listRowBackground(Color.gray.opacity(0.1))
             
         }//end Vstack
