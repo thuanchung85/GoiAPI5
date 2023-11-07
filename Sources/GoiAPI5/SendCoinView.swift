@@ -48,6 +48,8 @@ public struct SendCoinView: View {
                 
             }//end Vstack
             
+            Spacer()
+            
             //nút copy address
              Button(action: {
                  print("open recipient list")
