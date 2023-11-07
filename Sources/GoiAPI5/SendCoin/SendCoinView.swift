@@ -220,7 +220,7 @@ func return_CoinSymbol_Image_By_NetworkName(currentNetWork_name:String) ->[Strin
         currentCoinName = "BNB"
     case "BSC Testnest":
         currentCoinSymbol="BSC"
-        currentCoinName = "BNB"
+        currentCoinName = "TBNB"
     case "Goerli Testnet":
         currentCoinSymbol="Ethereum"
         currentCoinName = "ETH"
