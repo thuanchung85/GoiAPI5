@@ -18,8 +18,9 @@ public struct SendCoinView: View {
     @State var isShowSheet_PickOtherCoinForSend = false
     
     //===INIT====//
-    public init(isBack:Binding<Bool>,CoinSymbol:String) {
+    public init(isBack:Binding<Bool>,CoinSymbol:String, currentNetWork_name:String) {
         self.CoinSymbol = CoinSymbol
+        self.currentNetWork_name = currentNetWork_name
         self._isBack = isBack
     }
     
