@@ -57,6 +57,8 @@ public struct SendCoinView: View {
                         .padding(.top,15)
                         .padding(.horizontal,20)
                     TextField("Enter wallet address", text: self.$recipientWalletAddress)
+                        .scaledToFit()
+                        .minimumScaleFactor(0.02)
                         .frame(height: 60)
                         .foregroundColor(Color.black)
                         .textFieldStyle(PlainTextFieldStyle())
@@ -75,7 +77,7 @@ public struct SendCoinView: View {
                                  .font(.custom("Arial", size: 20))
                                  .padding(.horizontal,5)
                          }
-                         .frame(maxWidth: .infinity, minHeight: 40 ,maxHeight: 50)
+                         .frame(maxWidth: .infinity, minHeight: 30 ,maxHeight: 50)
                          .background(Color.green)
                          .cornerRadius(10)
                          .padding(.horizontal,20)
