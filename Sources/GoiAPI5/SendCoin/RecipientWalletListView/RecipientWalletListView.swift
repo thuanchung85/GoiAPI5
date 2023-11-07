@@ -46,23 +46,23 @@ public struct RecipientWalletListView: View {
                 HStack{
                     VStack{
                         Text( "\(item.walletname)")
-                            .font(.custom("Arial Bold", size: 15))
+                            .font(.custom("Arial Bold", size: 20))
                             .foregroundColor(Color.black)
                             .padding(5)
                         Text( "\(item.walletAddress)")
-                            .font(.custom("Arial", size: 12))
+                            .font(.custom("Arial", size: 25))
                             .foregroundColor(Color.gray)
                             .padding(5)
                     }
-                    .frame(height: 120)
+                    .frame(height: 150)
                     .background(
-                        LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.5), .green.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
+                        LinearGradient(gradient: Gradient(colors: [.purple.opacity(0.1), .green.opacity(0.2)]), startPoint: .top, endPoint: .bottom)
                         )
                     .cornerRadius(10)
                     .padding(.horizontal,15)
                 }
                 .padding(5)
-            }
+            } .listRowBackground(Color.gray.opacity(0.1))
             
         }//end Vstack
         
