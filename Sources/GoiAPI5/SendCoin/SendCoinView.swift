@@ -94,7 +94,7 @@ public struct SendCoinView: View {
                     HStack{
                         TextField("0", text: self.$amountCoin)
                             .keyboardType(.numberPad)
-                            .font(.title)
+                            .font(.custom("Arial Bold", size: 30))
                             .scaledToFill()
                             .minimumScaleFactor(0.02)
                             .multilineTextAlignment(.center)
