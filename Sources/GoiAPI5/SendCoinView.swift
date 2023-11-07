@@ -17,6 +17,7 @@ public struct SendCoinView: View {
     //====BODY===/
     public var body: some View{
         VStack{
+            
             //nút copy address
              Button(action: {
                  print("open recipient list")
