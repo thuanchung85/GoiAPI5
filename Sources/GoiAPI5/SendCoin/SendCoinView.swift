@@ -142,12 +142,12 @@ public struct SendCoinView: View {
             //khu hiện trong ví user có bao nhieu coin thuộc loai này
             HStack{
                
-                Image(return_CoinSymbol_Image_By_NetworkName(currentNetWork_name: self.currentNetWork_name))
+                Image(return_CoinSymbol_Image_By_NetworkName(currentNetWork_name: self.currentNetWork_name)[0])
                     .resizable()
                     .scaledToFill()
                     .clipShape(Circle())
                     .frame(width: 50, height: 50)
-                Text("BTC")
+                Text(return_CoinSymbol_Image_By_NetworkName(currentNetWork_name: self.currentNetWork_name)[1])
                     .font(.body)
                 Spacer()
                 Text("00")
@@ -209,37 +209,50 @@ public struct SendCoinView: View {
 
 
 
-func return_CoinSymbol_Image_By_NetworkName(currentNetWork_name:String) ->String
+func return_CoinSymbol_Image_By_NetworkName(currentNetWork_name:String) ->[String]
 {
     var currentCoinSymbol:String = ""
+    var currentCoinName:String = ""
     switch(currentNetWork_name)
     {
     case "BSC":
         currentCoinSymbol = "BSC"
+        currentCoinName = "BNB"
     case "BSC Testnest":
         currentCoinSymbol="BSC"
+        currentCoinName = "BNB"
     case "Goerli Testnet":
         currentCoinSymbol="Ethereum"
+        currentCoinName = "ETH"
     case "Ethereum":
         currentCoinSymbol="Ethereum"
+        currentCoinName = "ETH"
     case "Polygon":
         currentCoinSymbol="Polygon"
+        currentCoinName = "MATIC"
     case "Pools":
         currentCoinSymbol="Pools"
+        currentCoinName = "Pools"
     case "Pools Testnest":
         currentCoinSymbol="Pools"
+        currentCoinName = "Pools"
     case "Fantom":
         currentCoinSymbol="Fantom"
+        currentCoinName = "FTM"
     case "Avalanche":
         currentCoinSymbol="Avalanche"
+        currentCoinName = "AVAX"
     case "Cronos":
         currentCoinSymbol="Cronos"
+        currentCoinName = "CRO"
     case "Arbitrum":
         currentCoinSymbol="Arbitrum"
+        currentCoinName = "ARB"
     default:
         currentCoinSymbol="Pools"
+        currentCoinName = "Pools"
     }
-    return currentCoinSymbol
+    return [currentCoinSymbol,currentCoinName]
 }
 
 
