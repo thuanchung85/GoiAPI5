@@ -10,7 +10,7 @@ public struct SendCoinView: View {
     
     //biến input địa chỉ ví người nhận
     @State var recipientWalletAddress:String = ""
-    
+    @State var amountCoin:String = ""
     //===INIT====//
     public init(isBack:Binding<Bool>) {
        
@@ -75,8 +75,14 @@ public struct SendCoinView: View {
                             .font(.body)
                     }
                     HStack{
-                        Text("0000000")
-                            .font(.title)
+                        TextField("0", text: self.$amountCoin)
+                            .frame(height: 60)
+                            .foregroundColor(Color.black)
+                            .textFieldStyle(PlainTextFieldStyle())
+                            .padding([.horizontal], 4)
+                            .cornerRadius(10)
+                            .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
+                            .padding([.horizontal], 20)
                     }
                     HStack{
                         //nút copy address
