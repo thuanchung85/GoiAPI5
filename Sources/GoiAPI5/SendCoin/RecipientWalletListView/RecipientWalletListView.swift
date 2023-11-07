@@ -65,7 +65,7 @@ public struct RecipientWalletListView: View {
            let soluongRecipentSaved =  Int(UserDefaults.standard.string(forKey: "numberOfRecipientWallet") ?? "0")
             if soluongRecipentSaved != nil {
                 if(soluongRecipentSaved! > 0){
-                    for i in 0...(soluongRecipentSaved!){
+                    for i in 1...(soluongRecipentSaved!){
                         let rg = UserDefaults.standard.string(forKey: "recipient\(i)") ?? "0"
                         let arr = rg.components(separatedBy: "+|Receiver@Wallet|+")
                         let newRecipient = RecipientWalletItem(walletname:arr[0],walletAddress:arr[1])
