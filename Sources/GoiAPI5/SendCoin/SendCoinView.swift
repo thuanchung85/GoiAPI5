@@ -12,7 +12,8 @@ public struct SendCoinView: View {
     @State var recipientWalletAddress:String = ""
     @State var CoinSymbol = ""
     @State var currentNetWork_name = ""
-    @State var amountCoin:String = ""
+    @State var amountCoinWantToSend:String = ""
+    @State var currentBalanceCoinsOfThisAddress = ""
     
     //biến show sheet người dùng chọn coin khác
     @State var isShowSheet_PickOtherCoinForSend = false
@@ -102,7 +103,7 @@ public struct SendCoinView: View {
                             .font(.body)
                     }
                     HStack{
-                        TextField("0", text: self.$amountCoin)
+                        TextField("0", text: self.$amountCoinWantToSend)
                             .keyboardType(.numberPad)
                             .font(.custom("Arial Bold", size: 40))
                             .scaledToFill()
@@ -150,7 +151,7 @@ public struct SendCoinView: View {
                 Text(return_CoinSymbol_Image_By_NetworkName(currentNetWork_name: self.currentNetWork_name)[1])
                     .font(.body)
                 Spacer()
-                Text("00")
+                Text(self.currentBalanceCoinsOfThisAddress)
                     .font(.body)
                     .padding(.trailing,20)
             }
@@ -166,7 +167,7 @@ public struct SendCoinView: View {
             
             Spacer()
             //nút copy address
-            if(Int(self.amountCoin) ?? 0 > 0){
+            if(Int(self.amountCoinWantToSend) ?? 0 > 0) && (self.amountCoinWantToSend <= self.currentBalanceCoinsOfThisAddress){
                 Button(action: {
                     print("NEXT send COIN")
                     
