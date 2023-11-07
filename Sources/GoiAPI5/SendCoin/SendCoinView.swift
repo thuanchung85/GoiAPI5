@@ -11,6 +11,10 @@ public struct SendCoinView: View {
     //biến input địa chỉ ví người nhận
     @State var recipientWalletAddress:String = ""
     @State var amountCoin:String = ""
+    
+    //biến show sheet người dùng chọn coin khác
+    @State var isShowSheet_PickOtherCoinForSend = false
+    
     //===INIT====//
     public init(isBack:Binding<Bool>) {
        
@@ -67,7 +71,7 @@ public struct SendCoinView: View {
                         .cornerRadius(10)
                         .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
                         .padding([.horizontal], 20)
-                    //nút copy address
+                    //nút vào recipient list
                      Button(action: {
                          print("open recipient list")
                          self.isShowSheet_RecipientList = true
@@ -131,6 +135,8 @@ public struct SendCoinView: View {
                 }
             }
             Spacer()
+            
+            //khu hiện trong ví user có bao nhieu coin thuộc loai này
             HStack{
                 Image("Account")
                     .resizable()
@@ -147,6 +153,12 @@ public struct SendCoinView: View {
             .background(Color.gray.opacity(0.3))
             .cornerRadius(25)
             .padding(.horizontal,20)
+            .onTapGesture(perform: {
+                print("gọi sheet để user chọn coin khác:")
+                self.isShowSheet_PickOtherCoinForSend = true
+            })
+            
+            
             
             Spacer()
             //nút copy address
@@ -177,6 +189,13 @@ public struct SendCoinView: View {
             RecipientWalletListView(isBack: $isShowSheet_RecipientList, recipientWalletAddress: $recipientWalletAddress
                                     )
            
+         })//end sheet
+        
+        //show sheet về các các đồng coin khác user đang có
+        .sheet(isPresented: self.$isShowSheet_PickOtherCoinForSend,
+                content: {
+            
+            ListOfCoinView(isBack: self.$isShowSheet_PickOtherCoinForSend)
          })//end sheet
     }//end body
 }//end struct
