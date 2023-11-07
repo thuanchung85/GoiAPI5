@@ -197,14 +197,13 @@ public struct SendCoinView: View {
         
         //show sheet về các các đồng coin khác user đang có
         .sheet(isPresented: self.$isShowSheet_PickOtherCoinForSend,
-                content: {
+               content: {
             
-            ListOfCoinView(isBack: self.$isShowSheet_PickOtherCoinForSend, CoinSymbol:self.$CoinSymbol, currentNetWork_name: self.$currentNetWork_name)
-         })//end sheet
+            ListOfCoinView(isBack: self.$isShowSheet_PickOtherCoinForSend, CoinSymbol:self.$CoinSymbol,
+                           currentNetWork_name: self.$currentNetWork_name)
+                
+        })//end sheet
         
-        .onChange(of: self.currentNetWork_name) { newValue in
-            self.currentNetWork_name = newValue
-        }
     }//end body
 }//end struct
 

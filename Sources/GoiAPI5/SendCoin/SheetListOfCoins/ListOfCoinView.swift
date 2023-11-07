@@ -61,7 +61,7 @@ public struct ListOfCoinView: View {
                         print(i.name)
                         self.isBack = false
                         self.CoinSymbol = i.CoinSymbol ?? "..."
-                        self.currentNetWork_name =  self.CoinSymbol
+                        self.currentNetWork_name =  i.name
                     })
                     .padding(.horizontal,15)
                     
