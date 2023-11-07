@@ -8,6 +8,13 @@ public struct SendCoinView: View {
     
     @State var isShowSheet_RecipientList = false
     
+    //===INIT====//
+    public init() {
+       
+       
+    }
+    
+    //====BODY===/
     public var body: some View{
         VStack{
             //nút copy address
