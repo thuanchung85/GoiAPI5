@@ -71,6 +71,7 @@ public struct RecipientWalletListView: View {
                         let newRecipient = RecipientWalletItem(walletname:arr[0],walletAddress:arr[1])
                         ListOfRecipientWalletAddress.append(newRecipient)
                     }
+                    print(ListOfRecipientWalletAddress)
                 }
             }
         }
