@@ -134,7 +134,10 @@ public struct SendCoinView: View {
                 Spacer()
                 Text("00")
                     .font(.body)
-            }.padding(.horizontal,20)
+            }
+            .background(Color.gray.opacity(0.3))
+            .cornerRadius(15)
+            .padding(.horizontal,20)
             
             Spacer()
             //nút copy address
