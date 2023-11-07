@@ -64,7 +64,24 @@ public struct SendCoinView: View {
                         .cornerRadius(10)
                         .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
                         .padding([.horizontal], 20)
-                       
+                    //nút copy address
+                     Button(action: {
+                         print("open recipient list")
+                         self.isShowSheet_RecipientList = true
+                     }) {
+                         HStack{
+                             Text("Recipient list")
+                                 .foregroundColor(Color.white)
+                                 .font(.custom("Arial", size: 20))
+                                 .padding(.horizontal,5)
+                         }
+                         .frame(maxWidth: .infinity, minHeight: 40 ,maxHeight: 50)
+                         .background(Color.green)
+                         .cornerRadius(10)
+                         .padding(.horizontal,20)
+                         
+                     }
+                     .padding(20)
                 }
             }
             Spacer()
@@ -122,11 +139,11 @@ public struct SendCoinView: View {
             Spacer()
             //nút copy address
              Button(action: {
-                 print("open recipient list")
-                 self.isShowSheet_RecipientList = true
+                 print("NEXT send COIN")
+                 
              }) {
                  HStack{
-                     Text("Open recipient list")
+                     Text("NEXT")
                          .foregroundColor(Color.white)
                          .font(.custom("Arial", size: 20))
                          .padding(.horizontal,5)
