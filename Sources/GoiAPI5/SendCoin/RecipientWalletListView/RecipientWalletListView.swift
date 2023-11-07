@@ -45,10 +45,17 @@ public struct RecipientWalletListView: View {
             List(ListOfRecipientWalletAddress.filter({ searchText.isEmpty ? true : $0.walletname.contains(searchText) })) { item in
                 HStack{
                     VStack{
-                        Text( "\(item.walletname)")
-                            .font(.custom("Arial Bold", size: 20))
-                            .foregroundColor(Color.black)
-                            .padding(5)
+                        HStack{
+                            Image("Account")
+                                .resizable()
+                                .scaledToFill()
+                                .clipShape(Circle())
+                                .frame(width: 120, height: 120)
+                            Text( "\(item.walletname)")
+                                .font(.custom("Arial Bold", size: 20))
+                                .foregroundColor(Color.black)
+                                .padding(5)
+                        }
                         Text( "\(item.walletAddress)")
                             .font(.custom("Arial", size: 18))
                             .foregroundColor(Color.gray)
