@@ -5,19 +5,49 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 public struct SendCoinView: View {
-    
+    @Binding var isBack:Bool
     @State var isShowSheet_RecipientList = false
     
     //===INIT====//
-    public init() {
+    public init(isBack:Binding<Bool>) {
        
-       
+        self._isBack = isBack
     }
     
     //====BODY===/
     public var body: some View{
         VStack{
-            Spacer()
+            VStack(){
+                //khu title và nut back
+                HStack{
+                    ZStack{
+                        //nut thoat khoi view này
+                        HStack{
+                            Button(action: {
+                                self.isBack = false
+                            }) {
+                                Image(systemName: "chevron.backward")
+                                    .foregroundColor(Color.green)
+                            }
+                            Spacer()
+                        }
+                        
+                        //tiêu đề
+                        HStack{
+                            Spacer()
+                            Text("Send Coin")
+                                .font(.custom("Arial ", size: 20))
+                                .padding(.top,10)
+                            Spacer()
+                        }
+                    }
+                }
+                .padding()
+                
+               
+                
+            }//end Vstack
+            
             //nút copy address
              Button(action: {
                  print("open recipient list")
