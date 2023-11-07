@@ -199,7 +199,7 @@ public struct SendCoinView: View {
         .sheet(isPresented: self.$isShowSheet_PickOtherCoinForSend,
                 content: {
             
-            ListOfCoinView(isBack: self.$isShowSheet_PickOtherCoinForSend, CoinSymbol:self.$CoinSymbol)
+            ListOfCoinView(isBack: self.$isShowSheet_PickOtherCoinForSend, CoinSymbol:self.$CoinSymbol, currentNetWork_name: self.$currentNetWork_name)
          })//end sheet
     }//end body
 }//end struct

@@ -19,6 +19,7 @@ public struct ListOfCoinView: View {
     
     @Binding var isBack:Bool
     @Binding var CoinSymbol:String
+    @Binding var currentNetWork_name:String
     
     let arr_OrtherNetwork = [
        Coin_Data_OfUser(name: "BSC", imgIcon: "BSC", CoinSymbol: "BNB"),
@@ -60,6 +61,7 @@ public struct ListOfCoinView: View {
                         print(i.name)
                         self.isBack = false
                         self.CoinSymbol = i.CoinSymbol ?? "..."
+                        self.currentNetWork_name =  self.CoinSymbol
                     })
                     .padding(.horizontal,15)
                     
