@@ -51,7 +51,7 @@ public struct SendCoinView: View {
                 
             }//end Vstack
             HStack{
-                VStack{
+                VStack(alignment: .leading){
                     Text("To:")
                         .font(.custom("Arial Bold", size: 15))
                         .padding(.top,15)
@@ -90,7 +90,7 @@ public struct SendCoinView: View {
                                      .font(.custom("Arial", size: 20))
                                      .padding(.horizontal,5)
                              }
-                             .frame(maxWidth: .infinity, minHeight: 60 ,maxHeight: 60)
+                             .frame(width: 60 ,height: 60)
                              .background(Color.green)
                              .cornerRadius(30)
                              .padding(.horizontal,20)
