@@ -81,7 +81,7 @@ public struct SendCoinView: View {
                          .padding(.horizontal,20)
                          
                      }
-                     .padding(20)
+                     .padding(5)
                 }
             }
           Spacer()
