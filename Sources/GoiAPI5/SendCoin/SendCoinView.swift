@@ -57,6 +57,7 @@ public struct SendCoinView: View {
                         .padding(.top,15)
                         .padding(.horizontal,20)
                     TextField("Enter wallet address", text: self.$recipientWalletAddress)
+                        .multilineTextAlignment(.center)
                         .scaledToFit()
                         .minimumScaleFactor(0.02)
                         .frame(height: 60)
