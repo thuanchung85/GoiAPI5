@@ -50,6 +50,9 @@ public struct ListOfCoinView: View {
                             .font(.custom("Arial", size: 12))
                             .padding(12)
                         Spacer()
+                        Text(i.currentBalanceOfCoin_for_Address ?? "0")
+                            .font(.custom("Arial", size: 12))
+                            .padding(12)
                     }
                     //khi user chọn network cu thể thì load số coin và quy ra tiền
                     .onTapGesture(perform: {
